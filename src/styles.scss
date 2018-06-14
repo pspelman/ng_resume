@@ -2,11 +2,13 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 //HEIGHT WIDTH
-$resume_height: 120rem;
+$resume_height: 95rem;
 $resume_width: 65rem;;
 
 
 //COLORS
+$background__holder-color: rgba(108, 117, 125, 0.45);
+
 $headings__color__left-level-1: #93fff2;
 $headings__color__left-level-2: black;
 $headings__color__left-level-2: #fffffb;
@@ -62,7 +64,7 @@ $map-grid-props: (
 
 //centering mixin
 @mixin center_element {
-  background-color: rgba(108, 117, 125, 0.45);
+  background-color: $background__holder-color;
   margin-left: auto;
   margin-right: auto;
 }
@@ -162,12 +164,37 @@ div{
   }
 }
 
+//@media screen and (max-width:499px){
+//  #left_column{
+//    height: 75rem;
+//  }
+//}
+//
+//@media (min-width:500px){
+//  #left_column{
+//    height: $resume_height;
+//  }
+//}
+//
+//@media screen and (min-device-width: 0px) {
+//  #left_column{
+//    height: 70rem;
+//  }
+//}
+//@media screen and (min-device-width: 379px) {
+//  #left_column{
+//    height: 90rem;
+//  }
+//}
+
 #left_column {
   //resize: both;
   background-color: $panel__background-dark;
   padding-top: 3em;
-  min-height: 75vh;
-  max-height: $resume_height;
+  //min-height: ($resume_height);
+  height: $resume_height;
+  max-height: available;
+  //height: complex;
   min-width: 12rem;
   vertical-align: top;
   text-align: right;
@@ -244,13 +271,14 @@ div{
   .section-top{
     //padding-bottom:1rem;
     border-bottom: 3px solid $hr__color__right;
-    margin-right: -46px;
+    //border-bottom: 3px solid $background__holder-color;
+    margin-right: -38px;
     margin-bottom: 1rem;
   }
   .major-section {
     //border: 1px solid rgba(106, 122, 128, 0.49);
     border-radius: .5rem;
-    padding: 1rem;
+    padding: .5rem;
   }
 
   .sub-section{
@@ -270,6 +298,7 @@ div{
       li{
         line-height: 1rem;
         font-weight: normal;
+        margin-left: -.9rem;
         //white-space: nowrap;
       }
     }
@@ -327,8 +356,9 @@ div{
   color: white;
   &-div{
     flex-wrap: wrap;
-    display: inline-grid;
-    margin: -0.2rem;
+    display: inline-block;
+    margin-left: 0rem;
+    vertical-align: top;
     h4 {
       margin-right: 1rem;
       font-size: 1.4rem;
